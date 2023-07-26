@@ -3,6 +3,7 @@ import pandas as pd
 from streamlit.connections import ExperimentalBaseConnection
 from api_connection import APIConnection
 from api_connection import getToken
+import json
 
 
 # Set page config
@@ -24,6 +25,7 @@ response = conn.get_popular_movies()
 st.write(response)
 
 movies_data = response["results"]
+movies_data = json.loads(movies_data)
 movie_info = []
 
 for movie in movies_data:
