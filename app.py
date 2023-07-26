@@ -1,4 +1,3 @@
-from pymongo.mongo_client import MongoClient
 import streamlit as st
 import pandas as pd
 from streamlit.connections import ExperimentalBaseConnection
