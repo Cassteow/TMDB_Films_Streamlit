@@ -23,8 +23,8 @@ st.write("Top 10 movies:")
 
 response = conn.get_popular_movies()
 # print response data type
-print(type(response))
-#st.write(response)
+st.write(response)
+
 if response != None:
     #movies_data = json.loads(response.text)
     movie_info = []

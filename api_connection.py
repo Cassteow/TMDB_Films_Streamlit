@@ -25,3 +25,5 @@ class APIConnection(ExperimentalBaseConnection):
             return None
         else:
             return response.text           
+
+# Example response sample from API
