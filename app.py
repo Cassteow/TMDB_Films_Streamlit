@@ -38,6 +38,7 @@ if result:
         #movies_data = json.loads(response.text)
         movie_info = []
         if movie_type == "Popular":
+            response = response['results']
             st.write(response)
             # for i in len(response):
             #     movie = response[i]       
