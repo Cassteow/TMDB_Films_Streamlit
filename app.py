@@ -3,8 +3,6 @@ import pandas as pd
 from streamlit.connections import ExperimentalBaseConnection
 from api_connection import APIConnection
 from api_connection import getToken
-import json
-
 
 # Set page config
 st.set_page_config(page_title="TMDB Top Movies", layout="wide", page_icon="🎬")
@@ -30,11 +28,8 @@ if reset:
     result = False
 
 if result:
-    if movie_type == "Popular":
-        response = conn.get_popular_movies()
-    else:
-        response = conn.get_top_rated_movies()
-
+    response = conn.get_popular_movies(type=movie_type)
+    
 
     # create dataframe from API response
     columns = ["title", "release_date", "vote_average", "overview"]
