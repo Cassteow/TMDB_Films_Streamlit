@@ -2,6 +2,7 @@ import streamlit as st
 from streamlit.connections import ExperimentalBaseConnection
 import requests
 
+@st.cache_data
 def getToken():
     token = st.secrets["token"]
     return token
