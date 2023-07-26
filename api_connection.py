@@ -24,4 +24,4 @@ class APIConnection(ExperimentalBaseConnection):
         if response.status_code != 200:
             st.error("Error retrieving data from TMDB API")
         else:
-            return response.json()['results']            
+            return response.json()            
