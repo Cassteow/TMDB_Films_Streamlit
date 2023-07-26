@@ -24,14 +24,14 @@ st.write("Top 10 movies:")
 response = conn.get_popular_movies()
 #st.write(response)
 
-movies_data = json.loads(response["results"])
+movies_data = json.loads(response['results'])
 movie_info = []
 
 for movie in movies_data:
-    title = movie["title"]
-    release_date = movie["release_date"]
-    vote_average = movie["vote_average"]
-    overview = movie["overview"]
+    title = movie['title']
+    release_date = movie['release_date']
+    vote_average = movie['vote_average']
+    overview = movie['overview']
     movie_info.append([title, release_date, vote_average, overview])
     
 columns = ["Title", "Vote Average", "Release Date", "Overview"]
