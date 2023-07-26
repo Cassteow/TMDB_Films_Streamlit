@@ -22,9 +22,11 @@ columns = ["title", "release_date", "vote_average", "overview"]
 st.write("Top 10 movies:")
 
 response = conn.get_popular_movies()
+# print response data type
+st.write(type(response))
 #st.write(response)
 if response != None:
-    movies_data = json.loads(response)
+    movies_data = json.loads(response.text)
     movie_info = []
 
     for movie in movies_data['results']:
