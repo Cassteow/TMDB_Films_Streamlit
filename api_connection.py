@@ -17,7 +17,7 @@ class APIConnection(ExperimentalBaseConnection):
         url = "https://api.themoviedb.org/3/movie/popular"
 
         # call API
-        response = self._instance.get(url, headers=self._connect().token)
+        response = self._instance.get(url)
         # check response status code
         if response.status_code != 200:
             st.error("Error retrieving data from TMDB API")
