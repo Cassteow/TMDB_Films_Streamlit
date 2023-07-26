@@ -3,18 +3,13 @@ from streamlit.connections import ExperimentalBaseConnection
 import requests
 
 def getToken():
-    token = {
-        "accept": "application/json",
-        "Authorization": st.secrets["Authorization"],
-    }
+    token = st.secrets["token"]
     return token
 
 class APIConnection(ExperimentalBaseConnection):
     def _connect(self, **kwargs) -> requests.Session:
         session = requests.Session()
-
-        # set token
-        session.headers.update(self.token)
+        session.headers['Authorization'] = 'Bearer ' + kwargs['token']
         return session
     
     def get_popular_movies(self):
