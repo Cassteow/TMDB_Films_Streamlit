@@ -28,4 +28,5 @@ for movie in conn.get_popular_movies():
     )
 
 # Display dataframe
-st.dataframe(data)
+st.session_state.data = data
+st.write(data)
