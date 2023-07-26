@@ -3,7 +3,7 @@ import pandas as pd
 from streamlit.connections import ExperimentalBaseConnection
 from api_connection import APIConnection
 from api_connection import getToken
-
+import json
 # Set page config
 st.set_page_config(page_title="TMDB Top Movies", layout="wide", page_icon="🎬")
 # Set page title
@@ -38,7 +38,7 @@ if result:
         #movies_data = json.loads(response.text)
         movie_info = []
         if movie_type == "Popular":
-            response = response[1]
+            response = json.loads(response)
             st.write(response)
             # for i in len(response):
             #     movie = response[i]       
