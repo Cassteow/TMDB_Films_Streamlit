@@ -10,8 +10,10 @@ st.set_page_config(page_title="TMDB Top Movies", layout="wide", page_icon="🎬"
 # Set page title
 st.title("TMDB Top Movies")
 
+# Get token
+token = getToken()
 # Connect to TMDB API
-conn = st.experimental_connection("tmdb_api", type=APIConnection)
+conn = st.experimental_connection("tmdb_api", type=APIConnection, token=token)
 
 # create dataframe from API response
 columns = ["title", "release_date", "vote_average", "overview"]
