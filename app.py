@@ -36,7 +36,7 @@ if response != None:
         overview = movie['overview']
         movie_info.append([title, release_date, vote_average, overview])
         
-    columns = ["Title", "Vote Average", "Release Date", "Overview"]
+    columns = ["Title",  "Release Date","Vote Average", "Overview"]
     movies_df = pd.DataFrame(movie_info, columns=columns)
     # Display movies_df
     st.write(movies_df)
