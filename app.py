@@ -24,8 +24,7 @@ st.write("Top 10 movies:")
 response = conn.get_popular_movies()
 #st.write(response)
 
-movies_data = response["results"]
-movies_data = json.loads(movies_data)
+movies_data = json.loads(response["results"])
 movie_info = []
 
 for movie in movies_data:
