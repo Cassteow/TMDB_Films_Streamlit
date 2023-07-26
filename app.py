@@ -28,7 +28,7 @@ if reset:
     result = False
 
 if result:
-    response = conn.get_popular_movies(type=movie_type)
+    response = conn.get_popular_movies()
     
 
     # create dataframe from API response

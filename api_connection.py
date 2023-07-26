@@ -15,12 +15,8 @@ class APIConnection(ExperimentalBaseConnection):
         session.headers['Authorization'] = 'Bearer ' + kwargs['token']
         return session
     
-    def get_popular_movies(self, type):
-        if type == "Popular":
-            url = "https://api.themoviedb.org/3/movie/popular?page=1"
-        else:
-            url = "https://api.themoviedb.org/3/movie/top_rated?page=1"
-
+    def get_popular_movies(self):
+        url = "https://api.themoviedb.org/3/movie/popular?page=1"
         # call API
         response = self._instance.get(url)
         # check response status code
