@@ -9,6 +9,7 @@ def getToken():
 class APIConnection(ExperimentalBaseConnection):
     def _connect(self, **kwargs) -> requests.Session:
         session = requests.Session()
+        session.headers['accept'] = 'application/json'
         session.headers['Authorization'] = 'Bearer ' + kwargs['token']
         return session
     
