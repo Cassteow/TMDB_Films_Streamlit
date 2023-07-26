@@ -16,7 +16,7 @@ class APIConnection(ExperimentalBaseConnection):
         return session
     
     def get_popular_movies(self):
-        url = "https://api.themoviedb.org/3/movie/popular"
+        url = "https://api.themoviedb.org/3/movie/popular?page=1"
 
         # call API
         response = self._instance.get(url)
