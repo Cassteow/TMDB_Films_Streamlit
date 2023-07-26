@@ -7,6 +7,9 @@ def getToken():
     token = st.secrets["token"]
     return token
 
+token = getToken()
+
+
 class APIConnection(ExperimentalBaseConnection):
     def _connect(self, **kwargs) -> requests.Session:
         session = requests.Session()
