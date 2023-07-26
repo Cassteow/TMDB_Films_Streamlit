@@ -10,11 +10,32 @@ import json
 st.set_page_config(page_title="TMDB Top Movies", layout="wide", page_icon="🎬")
 # Set page title
 st.title("TMDB Top Movies")
-
 # Get token
 token = getToken()
 # Connect to TMDB API
 conn = st.experimental_connection("tmdb_api", type=APIConnection, token=getToken())
+
+# set dropdown menu to select movie type
+movie_type = st.selectbox("Select movie type", ("Popular", "Top Rated"))
+row_button = st.columns((3,2,2,3)) 
+# submit and reset button in green colour
+submit = row_button[1].button('Submit') 
+reset = row_button[2].button('Reset')
+result = False
+
+submit = st.button("Submit")
+if submit:
+    result = True
+
+if reset:
+    result = False
+
+if result:
+    if movie_type == "Popular":
+        response = conn.get_popular_movies()
+    else:
+        response = conn.get_top_rated_movies()
+
 
 # create dataframe from API response
 columns = ["title", "release_date", "vote_average", "overview"]
