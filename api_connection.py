@@ -12,7 +12,9 @@ def getToken():
 class APIConnection(ExperimentalBaseConnection):
     def _connect(self, **kwargs) -> requests.Session:
         session = requests.Session()
-        session.headers['Authorization'] = 'Bearer ' + kwargs['token']
+
+        # set token
+        session.headers.update(self.token)
         return session
     
     def get_popular_movies(self):
