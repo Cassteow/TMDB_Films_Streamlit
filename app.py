@@ -19,8 +19,12 @@ conn = st.experimental_connection("tmdb_api", type=APIConnection, token=getToken
 columns = ["title", "release_date", "vote_average", "overview"]
 # write response 
 st.write("Top 10 movies:")
+
 movies_data = []
 response = conn.get_popular_movies()
+st.write(response)
+
+
 for movie in response:
     movie_data = {
         "title": movie["title"],
@@ -33,3 +37,4 @@ for movie in response:
 movies_df = pd.DataFrame(movies_data)
 # Display movies_df
 st.write(movies_df)
+
