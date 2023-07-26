@@ -30,10 +30,11 @@ if response != None:
     movie_info = []
 
     for movie in response['results']:
-        title = movie['title']
-        release_date = movie['release_date']
-        vote_average = movie['vote_average']
-        overview = movie['overview']
+        for i in len(movie):
+            title = movie[i]['title']
+            release_date = movie[i]['release_date']
+            vote_average = movie[i]['vote_average']
+            overview = movie[i]['overview']
         movie_info.append([title, release_date, vote_average, overview])
         
     columns = ["Title", "Vote Average", "Release Date", "Overview"]
