@@ -38,7 +38,8 @@ if result:
         #movies_data = json.loads(response.text)
         movie_info = []
         if movie_type == "Popular":
-            for movie in response["results"]:       
+            for i in len(response):
+                movie = response[i]       
                 title = movie['title']
                 release_date = movie['release_date']
                 vote_average = movie['vote_average']
