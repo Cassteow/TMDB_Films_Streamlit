@@ -22,7 +22,7 @@ columns = ["title", "release_date", "vote_average", "overview"]
 st.write("Top 10 movies:")
 
 response = conn.get_popular_movies()
-st.write(response)
+#st.write(response)
 
 movies_data = response["results"]
 movies_data = json.loads(movies_data)
