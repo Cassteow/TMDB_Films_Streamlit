@@ -22,6 +22,12 @@ data = pd.DataFrame(columns=columns)
 st.write("Top 10 movies:")
 
 response = conn.get_popular_movies()
-response = pd.DataFrame(response)
+for movie in response:
+    title = movie['title']
+    release_date = movie['release_date']
+    vote_average = movie['vote_average']
+    overview = movie['overview']
+    data = data.append({'title': title, 'release_date': release_date, 'vote_average': vote_average, 'overview': overview}, ignore_index=True)
+    
 # Display
-st.write(response)
+st.write(data)
