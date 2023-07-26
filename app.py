@@ -23,5 +23,4 @@ st.write("Top 10 movies:")
 st.write(conn.get_popular_movies()[:10])
 
 # Display dataframe
-st.session_state.data = data
 st.write(data)
