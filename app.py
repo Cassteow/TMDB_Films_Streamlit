@@ -20,7 +20,8 @@ columns = ["title", "release_date", "vote_average", "overview"]
 data = pd.DataFrame(columns=columns)
 # write response 
 st.write("Top 10 movies:")
-st.write(conn.get_popular_movies()[:10])
 
-# Display dataframe
-st.write(data)
+response = conn.get_popular_movies()
+response = pd.DataFrame(response)
+# Display
+st.write(response)
