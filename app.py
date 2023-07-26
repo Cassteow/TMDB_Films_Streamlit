@@ -35,25 +35,23 @@ if result:
         response = conn.get_top_rated_movies()
     
     if response != None:
+        response = json.loads(response)
         #movies_data = json.loads(response.text)
         movie_info = []
         if movie_type == "Popular":
-            response = json.loads(response)
-            st.write(response)
-            # for i in len(response):
-            #     movie = response[i]       
-            #     title = movie['title']
-            #     release_date = movie['release_date']
-            #     vote_average = movie['vote_average']
-            #     overview = movie['overview']
-            #     movie_info.append([title, release_date, vote_average, overview])
-            # columns = ["Title",  "Release Date","Vote Average", "Overview"]
-            # movies_df = pd.DataFrame(movie_info, columns=columns)
-            # # Display movies_df
-            # st.subheader("Popular Movies")
-            # st.write(movies_df)
+            for movie in response['results']:      
+                title = movie['title']
+                release_date = movie['release_date']
+                vote_average = movie['vote_average']
+                overview = movie['overview']
+                movie_info.append([title, release_date, vote_average, overview])
+            columns = ["Title",  "Release Date","Vote Average", "Overview"]
+            movies_df = pd.DataFrame(movie_info, columns=columns)
+            # Display movies_df
+            st.subheader("Popular Movies")
+            st.write(movies_df)
         elif movie_type == "Top Rated":
-            for movie in response:       
+            for movie in response['results']:       
                 title = movie['title']
                 release_date = movie['release_date']
                 vote_average = movie['vote_average']
