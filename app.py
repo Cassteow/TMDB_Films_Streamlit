@@ -19,7 +19,7 @@ conn = st.experimental_connection("tmdb_api", type=APIConnection, token=getToken
 # create dataframe from API response
 columns = ["title", "release_date", "vote_average", "overview"]
 # write response 
-st.write("Top 10 movies:")
+st.write("Top 20 movies:")
 
 response = conn.get_popular_movies()
 # print response data type
