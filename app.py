@@ -28,8 +28,11 @@ if reset:
     result = False
 
 if result:
-    response = conn.get_popular_movies()
-    
+    #response = conn.get_popular_movies()
+    if movie_type == "Popular":
+        response = conn.get_popular_movies()
+    elif movie_type == "Top Rated":
+        response = conn.get_top_rated_movies()
 
     # create dataframe from API response
     columns = ["title", "release_date", "vote_average", "overview"]
