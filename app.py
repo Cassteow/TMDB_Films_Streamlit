@@ -12,7 +12,7 @@ st.title("TMDB Top Movies")
 
 # Connect to TMDB API
 token = getToken()
-conn = st.experimental_connection("tmdb_api", type=APIConnection, token=token)
+conn = st.experimental_connection("tmdb_api", type=APIConnection)
 
 # create dataframe from API response
 columns = ["title", "release_date", "vote_average", "overview"]
