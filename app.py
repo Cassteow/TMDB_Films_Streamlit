@@ -26,10 +26,10 @@ response = conn.get_popular_movies()
 print(type(response))
 #st.write(response)
 if response != None:
-    movies_data = json.loads(response.text)
+    #movies_data = json.loads(response.text)
     movie_info = []
 
-    for movie in movies_data['results']:
+    for movie in response['results']:
         title = movie['title']
         release_date = movie['release_date']
         vote_average = movie['vote_average']
