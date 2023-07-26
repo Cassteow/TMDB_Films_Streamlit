@@ -18,15 +18,9 @@ conn = st.experimental_connection("tmdb_api", type=APIConnection, token=getToken
 # create dataframe from API response
 columns = ["title", "release_date", "vote_average", "overview"]
 data = pd.DataFrame(columns=columns)
-for movie in conn.get_popular_movies():
-    title = movie['title']
-    release_date = movie['release_date']
-    vote_average = movie['vote_average']
-    overview = movie['overview']
-    data = data.append(
-        pd.Series([title, release_date, vote_average, overview], index=columns),
-        ignore_index=True,
-    )
+# write response 
+st.write("Top 10 movies:")
+st.write(conn.get_popular_movies()[:10])
 
 # Display dataframe
 st.session_state.data = data
