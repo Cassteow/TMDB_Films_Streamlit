@@ -23,7 +23,6 @@ submit = row_button[1].button('Submit')
 reset = row_button[2].button('Reset')
 result = False
 
-submit = st.button("Submit")
 if submit:
     result = True
 
